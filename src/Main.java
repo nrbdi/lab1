@@ -1,21 +1,19 @@
 import java.util.Scanner;
-//task5
-//fibonacci(n) call makes two recursive calls,
-// leading to an exponential growth. it is O(2^n)
-
+//task6
+//The function makes n recursive calls, reducing n by 1 each time, so it is O(n)
 
 public class Main {
-    public static int fibonacci(int n) {
-        if (n == 0) return 0;
-        if (n == 1) return 1;
-        return fibonacci(n - 1) + fibonacci(n - 2);
+    public static int power(int a, int n) {
+        if (n == 0) return 1;
+        return a * power(a, n - 1);
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
         int n = scanner.nextInt();
 
-        System.out.println(fibonacci(n));
+        System.out.println(power(a, n));
         scanner.close();
     }
 }
