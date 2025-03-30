@@ -1,27 +1,24 @@
 import java.util.Scanner;
-//task2
-//The loop to sum the array takes O(n)
-import java.util.Scanner;
+//task3
+//The function recursively checks divisibility up to √n, making it O(√n)
 
 public class Main {
-    public static double findAverage(int[] arr) {
-        int sum = 0;
-        for (int num : arr) {
-            sum += num;
-        }
-        return (double) sum / arr.length;
+    public static boolean isPrime(int n, int i) {
+        if (n<2) return false;
+        if (i*i>n) return true;
+        if (n % i == 0) return false;
+        return isPrime(n, i+1);
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        int[] arr = new int[n];
 
-        for (int i = 0; i < n; i++) {
-            arr[i] = scanner.nextInt();
-        }
+        if (isPrime(n, 2))
+            System.out.println("Prime");
+        else
+            System.out.println("Composite");
 
-        System.out.println(findAverage(arr));
         scanner.close();
     }
 }
