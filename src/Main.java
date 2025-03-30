@@ -1,28 +1,27 @@
 import java.util.Scanner;
-//task1
-//The time complexity of this code is O(n), where n is the number of elements in the array.
+//task2
+//The loop to sum the array takes O(n)
+import java.util.Scanner;
 
-public class Main{
-    public static int findMinimum(int[] arr) {
-        int minimum = arr[0];
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] < minimum) {
-                minimum = arr[i];
-            }
+public class Main {
+    public static double findAverage(int[] arr) {
+        int sum = 0;
+        for (int num : arr) {
+            sum += num;
         }
-        return minimum;
+        return (double) sum / arr.length;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        int[] array = new int[n];
+        int[] arr = new int[n];
 
-        for (int i=0; i<n;i++){
-            array[i]=scanner.nextInt();
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
         }
 
-        System.out.println("minimum value:" + findMinimum(array));
+        System.out.println(findAverage(arr));
         scanner.close();
     }
 }
