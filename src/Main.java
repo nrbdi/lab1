@@ -1,19 +1,23 @@
 import java.util.Scanner;
-//task4
-//The function makes n recursive calls, which makes it's time complexity O(n)
+//task5
+//fibonacci(n) call makes two recursive calls,
+// leading to an exponential growth. it is O(2^n)
 
 
 public class Main {
-    public static int factorial(int n) {
-        if (n == 0 || n == 1) return 1;
-        return n * factorial(n - 1);
+    public static int fibonacci(int n) {
+        if (n == 0) return 0;
+        if (n == 1) return 1;
+        return fibonacci(n - 1) + fibonacci(n - 2);
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
 
-        System.out.println(factorial(n));
+        System.out.println(fibonacci(n));
         scanner.close();
     }
 }
+
+
