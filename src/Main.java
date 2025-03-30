@@ -1,19 +1,21 @@
 import java.util.Scanner;
 
-//task8
-//in the function each element is checked once, so it is O(n)
+//task9
+//exponential O(2ⁿ) since it branches into two recursive calls.
 
 public class Main {
-    public static boolean isAllDigits(String s, int index) {
-        if (index == s.length()) return true;
-        if (!Character.isDigit(s.charAt(index))) return false;
-        return isAllDigits(s, index + 1);
+    public static int binomialCoefficient(int n, int k) {
+        if (k == 0 || k == n) return 1;
+        return binomialCoefficient(n - 1, k - 1) + binomialCoefficient(n - 1, k);
     }
 
     public static void main(String[] args) {
-        java.util.Scanner scanner = new java.util.Scanner(System.in);
-        String s = scanner.next();
-        System.out.println(isAllDigits(s, 0));
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int k = scanner.nextInt();
+
+        System.out.println(binomialCoefficient(n, k));
         scanner.close();
     }
 }
+
